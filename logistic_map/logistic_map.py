@@ -91,7 +91,7 @@ if plot_bifurcation:
         hist, _ = np.histogram(data, bins=x_grid, density=True)
         diagram_grid[:, j] = hist
 
-plt.contourf(mu_grid, x_grid[1:], diagram_grid, norm="log")
+plt.contourf(mu_grid, x_grid[1:], diagram_grid, levels=1000, norm="log")
 plt.xlabel(r"$\mu$")
 plt.ylabel(r"$x$")
 # plt.colorbar()
@@ -105,7 +105,7 @@ if plot_cusps:
         for i in range(8):
             x = logisticMap(x, mu=mu_val)
             cusps.append(x)
-        plt.scatter(np.repeat(mu_val, 8), np.array(cusps), color="red")
+        plt.scatter(np.repeat(mu_val, 8), np.array(cusps), s=0.2, color="red")
 
 plt.show()
 plt.clf()
